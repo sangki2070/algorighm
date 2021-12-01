@@ -166,6 +166,7 @@ function solution(s) {
     return newAnswer
 }
 
+// ===========================================
 
 // 길이가 n이고, "수박수박수박수...."와 같은 패턴을 유지하는 문자열을 리턴하는 함수, solution을 완성하세요. 예를들어 n이 4이면 "수박수박"을 리턴하고 3이라면 "수박수"를 리턴하면 됩니다.
 
@@ -183,5 +184,77 @@ function solution(n) {
             answer = answer + b
         }
     }
+    return answer
+}
+
+// ===========================================
+
+
+// 문자열 s는 한 개 이상의 단어로 구성되어 있습니다. 각 단어는 하나 이상의 공백문자로 구분되어 있습니다. 각 단어의 짝수번째 알파벳은 대문자로, 홀수번째 알파벳은 소문자로 바꾼 문자열을 리턴하는 함수, solution을 완성하세요.
+
+// 제한 사항
+// 문자열 전체의 짝/홀수 인덱스가 아니라, 단어(공백을 기준)별로 짝/홀수 인덱스를 판단해야합니다.
+// 첫 번째 글자는 0번째 인덱스로 보아 짝수번째 알파벳으로 처리해야 합니다.
+
+// *************** 풀이 *********************
+
+
+function solution(s) {
+    let answer = ""
+    
+    let arr = s.split(" ")
+    let arr2 = arr.map((el) => (el.split("")))
+    
+    for(let i = 0; i < arr2.length; i ++){
+        for(let j = 0; j < arr2[i].length; j ++){
+            if(j % 2 === 0){
+                arr2[i][j] = arr2[i][j].toUpperCase()
+            } else {
+                arr2[i][j] = arr2[i][j].toLowerCase()
+            }
+        }
+    }
+    
+    for(let t = 0; t < arr2.length; t ++){
+        if(t === 0){
+            answer = answer + arr2[t].join("")
+        } else {
+            answer = answer + " " + arr2[t].join("")
+        }
+    }
+    return answer
+}
+
+// ===========================================
+
+
+// 자연수 N이 주어지면, N의 각 자릿수의 합을 구해서 return 하는 solution 함수를 만들어 주세요.
+// 예를들어 N = 123이면 1 + 2 + 3 = 6을 return 하면 됩니다.
+
+// 제한사항
+// N의 범위 : 100,000,000 이하의 자연수
+
+// *************** 풀이 *********************
+
+function solution(n)
+{
+    let answer = 0
+    let arr = String(n).split("")
+    arr.map((el) => answer += Number(el))
+    return answer
+}
+
+// ===========================================
+
+
+
+// 자연수 n을 뒤집어 각 자리 숫자를 원소로 가지는 배열 형태로 리턴해주세요. 예를들어 n이 12345이면 [5,4,3,2,1]을 리턴합니다.
+
+// *************** 풀이 *********************
+
+function solution(n) {
+    let arr = String(n).split("")
+    let answer = arr.map((el) => Number(el)).reverse()
+    
     return answer
 }
