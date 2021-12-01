@@ -124,3 +124,64 @@ function solution(s){
     
     return answer
 }
+
+// ===========================================
+
+
+// String형 배열 seoul의 element중 "Kim"의 위치 x를 찾아, "김서방은 x에 있다"는 String을 반환하는 함수, solution을 완성하세요. seoul에 "Kim"은 오직 한 번만 나타나며 잘못된 값이 입력되는 경우는 없습니다.
+
+// *************** 풀이 *********************
+
+function solution(seoul) {
+    let answer = seoul.indexOf("Kim")
+    
+    return "김서방은 " + answer+"에" + " 있다"
+}
+
+
+// ===========================================
+
+
+
+// 문자열 s에 나타나는 문자를 큰것부터 작은 순으로 정렬해 새로운 문자열을 리턴하는 함수, solution을 완성해주세요.
+// s는 영문 대소문자로만 구성되어 있으며, 대문자는 소문자보다 작은 것으로 간주합니다.
+
+// *************** 풀이 *********************
+
+let a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+
+function solution(s) {
+    let result3 = s.split("")
+    let answer= []
+    
+    for(let i = 0; i < result3.length; i ++){
+        answer.push(result3[i].charCodeAt(0))
+    }
+
+    answer.sort((a,b) => b - a)
+    
+    let newAnswer = answer.map((el) => String.fromCharCode(el)).join("")
+    
+    return newAnswer
+}
+
+
+// 길이가 n이고, "수박수박수박수...."와 같은 패턴을 유지하는 문자열을 리턴하는 함수, solution을 완성하세요. 예를들어 n이 4이면 "수박수박"을 리턴하고 3이라면 "수박수"를 리턴하면 됩니다.
+
+// *************** 풀이 *********************
+
+function solution(n) {
+    let answer = ""
+    let a = "수"
+    let b = "박"
+    
+    for(let i = 1; i <= n ; i ++){
+        if(i % 2 !== 0){
+            answer = answer + a
+        } else {
+            answer = answer + b
+        }
+    }
+    return answer
+}
