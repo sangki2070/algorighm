@@ -14,3 +14,113 @@ function solution(s) {
     }
     return answer
 }
+
+// ==============================================
+
+// 배열 arr가 주어집니다. 배열 arr의 각 원소는 숫자 0부터 9까지로 이루어져 있습니다. 이때, 배열 arr에서 연속적으로 나타나는 숫자는 하나만 남기고 전부 제거하려고 합니다. 단, 제거된 후 남은 수들을 반환할 때는 배열 arr의 원소들의 순서를 유지해야 합니다. 예를 들면,
+
+// arr = [1, 1, 3, 3, 0, 1, 1] 이면 [1, 3, 0, 1] 을 return 합니다.
+// arr = [4, 4, 4, 3, 3] 이면 [4, 3] 을 return 합니다.
+// 배열 arr에서 연속적으로 나타나는 숫자는 제거하고 남은 수들을 return 하는 solution 함수를 완성해 주세요.
+
+// 제한사항
+// 배열 arr의 크기 : 1,000,000 이하의 자연수
+// 배열 arr의 원소의 크기 : 0보다 크거나 같고 9보다 작거나 같은 정수
+
+
+// *************** 풀이 *********************
+
+function solution(arr)
+{
+    let answer = []
+    
+    for(let i = 0; i < arr.length; i ++){
+        if(arr[i] !== arr[i + 1]){
+            answer.push(arr[i])
+        }
+    }
+    return answer
+}
+
+
+// ===========================================
+
+// 두 정수 a, b가 주어졌을 때 a와 b 사이에 속한 모든 정수의 합을 리턴하는 함수, solution을 완성하세요.
+// 예를 들어 a = 3, b = 5인 경우, 3 + 4 + 5 = 12이므로 12를 리턴합니다.
+
+// *************** 풀이 *********************
+
+function solution(a, b) {
+    let answer = 0
+    if( a === b){
+        answer = a
+    }
+    if( a > b){
+        for(let i = b ; i <= a; i ++){
+            answer = answer + i
+        }
+    }
+    if( b > a){
+        for(let i = a; i <= b; i ++){
+            answer = answer + i
+        }
+    }
+    return answer
+}
+
+// ===========================================
+
+// 문자열 s의 길이가 4 혹은 6이고, 숫자로만 구성돼있는지 확인해주는 함수, solution을 완성하세요. 예를 들어 s가 "a234"이면 False를 리턴하고 "1234"라면 True를 리턴하면 됩니다.
+
+// *************** 풀이 *********************
+
+function solution(s) {
+    let answer = true
+   
+    for(let i =0; i < s.length; i ++){
+        if(isNaN(s[i]) === true || s.length < 4 || s.length === 5 || s.length > 6 ){
+            answer = false
+            break
+        }
+        if(isNaN(s[i]) === false){
+            answer = true
+        }
+    }
+    return answer
+}
+
+// ===========================================
+
+
+// 대문자와 소문자가 섞여있는 문자열 s가 주어집니다. s에 'p'의 개수와 'y'의 개수를 비교해 같으면 True, 다르면 False를 return 하는 solution를 완성하세요. 'p', 'y' 모두 하나도 없는 경우는 항상 True를 리턴합니다. 단, 개수를 비교할 때 대문자와 소문자는 구별하지 않습니다.
+
+// 예를 들어 s가 "pPoooyY"면 true를 return하고 "Pyy"라면 false를 return합니다.
+
+// 제한사항
+// 문자열 s의 길이 : 50 이하의 자연수
+// 문자열 s는 알파벳으로만 이루어져 있습니다.
+
+// *************** 풀이 *********************
+
+function solution(s){
+    let answer = true
+    let arr = s.toLowerCase().split("")
+    let sum1 = 0
+    let sum2 = 0
+  
+    for(let i = 0; i < arr.length; i ++){
+        if(arr[i] === "p"){
+            sum1 += 1
+        }
+        if(arr[i] === "y"){
+            sum2 += 1
+        }
+    }
+    if(!arr.includes("p") && !arr.includes("y") || sum1 === sum2){
+        answer = true
+    } else {
+        answer = false
+    }
+    
+    return answer
+}
