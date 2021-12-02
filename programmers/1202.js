@@ -327,3 +327,61 @@ function solution(absolutes, signs) {
     }
     return answer
 }
+
+//===========================================
+
+// 두 정수 left와 right가 매개변수로 주어집니다. left부터 right까지의 모든 수들 중에서, 약수의 개수가 짝수인 수는 더하고, 약수의 개수가 홀수인 수는 뺀 수를 return 하도록 solution 함수를 완성해주세요.
+
+// *************** 풀이 *********************
+
+function solution(left, right) {
+    let answer = 0
+    let arr = [left]
+    
+    for(let i = left; i < right; i ++){
+        arr.push(i + 1)
+    }
+    
+    let sum = Array(arr.length).fill(0)
+    
+    for(let j = 0; j < arr.length; j ++ ){
+        for(let y = 1; y <= arr[j] ; y ++){
+            if(arr[j] % y === 0){
+                sum[j] += 1
+            }
+        }
+    }
+    console.log(sum)
+    
+    sum.forEach((el,index) => el % 2 === 0 ? answer += arr[index] : answer -= arr[index] )
+    return answer
+}
+
+//===========================================
+
+// 0부터 9까지의 숫자 중 일부가 들어있는 배열 numbers가 매개변수로 주어집니다. numbers에서 찾을 수 없는 0부터 9까지의 숫자를 모두 찾아 더한 수를 return 하도록 solution 함수를 완성해주세요.
+
+// *************** 풀이 *********************
+
+function solution(numbers) {
+    let answer = 45
+    numbers.forEach((el) => answer -= el)
+    return answer
+}
+
+//===========================================
+
+// 자연수 n이 매개변수로 주어집니다. n을 x로 나눈 나머지가 1이 되도록 하는 가장 작은 자연수 x를 return 하도록 solution 함수를 완성해주세요. 답이 항상 존재함은 증명될 수 있습니다.
+
+// *************** 풀이 *********************
+
+function solution(n) {
+    let answer = 0
+    for(let i = 1; i <= n; i ++){
+        if(n % i === 1){
+            answer = i
+            break
+        }
+    }
+    return answer
+}
