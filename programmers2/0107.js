@@ -8,26 +8,26 @@
 
 // ============= 풀이 ==================
 
-// function solution(s) {
-//     let answer = ""
-//     let arr = s.toLowerCase().split(" ")
+function solution(s) {
+    let answer = ""
+    let arr = s.toLowerCase().split(" ")
     
-//     console.log(arr)
+    console.log(arr)
  
-//     for(let i = 0 ; i < arr.length; i ++){
-//         if(arr[i] === ""){
-//             answer += " "
-//         }
-//         for(let j =0; j < arr[i].length; j ++){
+    for(let i = 0 ; i < arr.length; i ++){
+        if(arr[i] === ""){
+            answer += " "
+        }
+        for(let j =0; j < arr[i].length; j ++){
             
-//             if(j === 0) {
-//                 answer = answer + " " + arr[i][j].toUpperCase()
-//             } else {
-//                 answer += arr[i][j]
-//             }
-//         } 
+            if(j === 0) {
+                answer = answer + " " + arr[i][j].toUpperCase()
+            } else {
+                answer += arr[i][j]
+            }
+        } 
             
-//     } 
-//     return answer.slice(1)
+    } 
+    return answer.slice(1)
     
-// }
+}
