@@ -31,3 +31,25 @@ var divideString = function(s, k, fill) {
     return result 
     
 };
+
+// ***************************************
+
+// Given an integer x, return true if x is palindrome integer.
+
+// An integer is a palindrome when it reads the same backward as forward.
+
+// For example, 121 is a palindrome while 123 is not.
+
+// ============= 풀이 =====================
+
+var isPalindrome = function(x) {
+    
+    let check = String(x).split("")
+    console.log(check)
+    let result = []
+    
+    for(let i = 0 ; i < check.length ; i ++){
+        result.unshift(check[i])
+    }
+    return check.join("") === result.join("")
+};
