@@ -86,3 +86,24 @@ var finalValueAfterOperations = function(operations) {
     }
     return answer
 };
+
+// **************************************
+
+// A sentence is a list of words that are separated by a single space with no leading or trailing spaces.
+
+// You are given an array of strings sentences, where each sentences[i] represents a single sentence.
+
+// Return the maximum number of words that appear in a single sentence.
+
+// ================= 풀이 ================
+
+var mostWordsFound = function(sentences) {
+    let arr = []
+    
+    for(let i = 0; i < sentences.length; i ++){
+        arr.push(sentences[i].split(" ").length)
+    }
+    arr.sort((a,b) => b-a)
+    
+    return arr[0]
+};
