@@ -39,3 +39,24 @@ var smallerNumbersThanCurrent = function(nums) {
     }
     return result
 };
+
+// *************************************
+
+
+// Given an integer number n, return the difference between the product of its digits and the sum of its digits.
+
+
+// ============= 풀이 ================
+
+
+var subtractProductAndSum = function(n) {
+    let x = 1
+    let sum = 0
+    let int = String(n)
+    for(let i = 0; i < int.length; i ++){
+        console.log(int[i])
+        x = x * Number(int[i])
+        sum += Number(int[i])
+    }
+    return x - sum
+};
