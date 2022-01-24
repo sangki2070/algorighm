@@ -82,3 +82,25 @@ var decode = function(encoded, first) {
     }
     return origin
 };
+
+// *************************************
+
+
+// You are given a string s and an integer array indices of the same length. The string s will be shuffled such that the character at the ith position moves to indices[i] in the shuffled string.
+
+// Return the shuffled string.
+
+// ============= 풀이 ================
+
+var restoreString = function(s, indices) {
+    let result = []
+    
+    let newArr = s.split("").map((el,index) => indices[index] + el)
+
+    newArr.sort((a,b) => a.slice(0,-1) - b.slice(0,-1))
+
+    for(let i = 0; i < newArr.length; i ++){
+        result.push(newArr[i][newArr[i].length - 1])
+    }
+    return result.join("")
+};
