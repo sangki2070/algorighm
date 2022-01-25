@@ -142,3 +142,24 @@ var interpret = function(command) {
     
     return result.reduce((acc,cur) => acc ^ cur)
 };
+
+// *******************************
+
+
+// There is an undirected star graph consisting of n nodes labeled from 1 to n. A star graph is a graph where there is one center node and exactly n - 1 edges that connect the center node with every other node.
+
+// You are given a 2D integer array edges where each edges[i] = [ui, vi] indicates that there is an edge between the nodes ui and vi. Return the center of the given star graph.
+
+ // ============= 풀이 ================
+
+ var findCenter = function(edges) {
+    console.log(edges.flat().sort())
+    
+    let arr = edges.flat().sort()
+    
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] === arr[i + 1]){
+            return arr[i]
+        }
+    }
+};
