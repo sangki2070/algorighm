@@ -163,3 +163,22 @@ var interpret = function(command) {
         }
     }
 };
+
+// *******************************
+
+
+// Given an integer array nums and an integer k, return the number of pairs (i, j) where i < j such that |nums[i] - nums[j]| == k.
+
+ // ============= 풀이 ================
+
+ var countKDifference = function(nums, k) {
+    let result = 0
+    for(let i = 0; i < nums.length - 1; i ++){
+        for(let j = i + 1; j < nums.length; j ++){
+            if(Math.abs(nums[i] - nums[j]) === k){
+                result += 1
+            }
+        }
+    }
+    return result
+};
