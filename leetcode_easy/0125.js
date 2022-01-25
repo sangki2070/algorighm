@@ -120,3 +120,25 @@ var interpret = function(command) {
     
     return arr.join(" ").replace(/[0-9]/g, "")
 };
+
+// *******************************
+
+
+// You are given an integer n and an integer start.
+
+// Define an array nums where nums[i] = start + 2 * i (0-indexed) and n == nums.length.
+
+// Return the bitwise XOR of all elements of nums.
+
+ // ============= 풀이 ================
+
+ var xorOperation = function(n, start) {
+    
+    let result = []
+    
+    for(let i = 0; i < n; i ++){
+        result.push(start + 2*i) 
+    }
+    
+    return result.reduce((acc,cur) => acc ^ cur)
+};
