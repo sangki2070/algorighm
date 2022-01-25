@@ -31,3 +31,34 @@ var interpret = function(command) {
     let result = command.replace(/\(\)/g,"o",).split("")
     return result.filter((el) => el !== "(" && el!== ")").join("")
 };
+
+// *******************************
+
+
+// Balanced strings are those that have an equal quantity of 'L' and 'R' characters.
+
+// Given a balanced string s, split it in the maximum amount of balanced strings.
+
+// Return the maximum amount of split balanced strings.
+
+ // ============= 풀이 ================
+
+ var balancedStringSplit = function(s) {
+    let l = 0
+    let r = 0
+    let count = 0
+    
+    for(let i = 0; i < s.length; i ++){
+        if(s[i] === "L"){
+            l++
+        }
+        if(s[i] === "R"){
+            r++
+        }
+        if(l === r){
+            count ++
+        }
+    }
+    
+    return count
+};
