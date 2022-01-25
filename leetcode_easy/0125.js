@@ -62,3 +62,43 @@ var interpret = function(command) {
     
     return count
 };
+
+// *******************************
+
+
+// You are given an array items, where each items[i] = [typei, colori, namei] describes the type, color, and name of the ith item. You are also given a rule represented by two strings, ruleKey and ruleValue.
+
+// The ith item is said to match the rule if one of the following is true:
+
+// ruleKey == "type" and ruleValue == typei.
+// ruleKey == "color" and ruleValue == colori.
+// ruleKey == "name" and ruleValue == namei.
+// Return the number of items that match the given rule.
+
+ // ============= 풀이 ================
+
+ var countMatches = function(items, ruleKey, ruleValue) {
+    let count = 0
+    let type = 0
+    let color = 1
+    let name = 2
+    
+    for(let i = 0; i < items.length; i ++){
+        if(ruleKey === "type"){
+            if(items[i][type] === ruleValue){
+                count ++
+            }
+        }
+        if(ruleKey === "color"){
+            if(items[i][color] === ruleValue){
+                count ++
+            }
+        }
+        if(ruleKey === "name"){
+            if(items[i][name] === ruleValue){
+                count ++
+            }
+        }
+    }
+    return count
+};
